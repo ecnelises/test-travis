@@ -10,4 +10,4 @@ arch:
 os: linux
 
 script:
-  - "make && ./echo"
+  - "make test"

@@ -1,3 +1,6 @@
+test : echo
+	./echo
+
 echo : echo.o
 	$(CC) echo.o -o echo
 
