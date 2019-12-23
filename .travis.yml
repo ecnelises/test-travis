@@ -6,7 +6,6 @@ compiler:
 
 arch:
   - ppc64le
-  - arm64
 
 os: linux
 
