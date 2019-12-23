@@ -1,0 +1,14 @@
+language: c
+
+compiler:
+  - clang
+  - gcc
+
+arch:
+  - ppc64le
+  - arm64
+
+os: linux
+
+script:
+  - "make"
