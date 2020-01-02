@@ -9,5 +9,11 @@ arch:
 
 os: linux
 
+before_script:
+  - "apt-get install rbenv"
+  - "echo 'int main(){return 0;}' > dummy2.c"
+  - "xlc dummy2.c"
+  - "./a.out"
+
 script:
   - "make test"
