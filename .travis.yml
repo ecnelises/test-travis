@@ -10,10 +10,14 @@ arch:
 os: linux
 
 before_script:
-  - "sudo apt-get install rbenv"
+  - "wget -q http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/public.gpg -O- | sudo apt-key add -"
+  - "echo 'deb http://public.dhe.ibm.com/software/server/POWER/Linux/xl-compiler/eval/ppc64le/ubuntu/ trusty main' | sudo tee /etc/apt/sources.list.d/ibm-xl-compiler-eval.list"
+  - "sudo apt-get update"
+  - "sudo apt-get install xlc.16.1.1"
+  - "sudo /opt/ibm/xlC/16.1.1/bin/xlc_configure"
   - "echo 'int main(){return 0;}' > dummy2.c"
   - "xlc dummy2.c"
   - "./a.out"
 
 script:
-  - "make test"
+  - "CC=xlc make test"
